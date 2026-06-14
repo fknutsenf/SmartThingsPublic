@@ -14,30 +14,23 @@ python3 -m http.server 8000
 # then visit http://localhost:8000
 ```
 
-## Deploy (GitHub Pages)
+## Deploy (Vercel)
 
-Deployment is automated via GitHub Actions (`.github/workflows/deploy-pages.yml`).
+This is a static site, so Vercel serves it with no build step.
 
-1. In the repo, go to **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-1. Push to `master` (or `main`), or run the **Deploy to GitHub Pages** workflow
-   manually from the **Actions** tab.
-1. Site goes live at `https://<your-username>.github.io/<repo-name>/`.
+1. In Vercel, **Add New… → Project** and import this GitHub repo.
+1. **Framework Preset:** `Other`. Leave Build Command and Output Directory empty;
+   Root Directory `./`. Click **Deploy**.
+1. Every push to the default branch then triggers a new deployment automatically.
 
 ### Custom domain: fredheimlogistics.com
 
-The `CNAME` file in this repo points GitHub Pages at `fredheimlogistics.com`.
-At your domain registrar's DNS settings, add:
-
-| Type  | Host / Name | Value                       |
-| ----- | ----------- | --------------------------- |
-| A     | `@`         | `185.199.108.153`           |
-| A     | `@`         | `185.199.109.153`           |
-| A     | `@`         | `185.199.110.153`           |
-| A     | `@`         | `185.199.111.153`           |
-| CNAME | `www`       | `fknutsen-web.github.io.`   |
-
-Then in **Settings → Pages**, set the custom domain to `fredheimlogistics.com`
-and enable **Enforce HTTPS** once the certificate is issued.
+1. In the Vercel project: **Settings → Domains** and add `fredheimlogistics.com`
+   and `www.fredheimlogistics.com` (set `www` to redirect to the apex).
+1. Vercel shows the exact DNS records to add at your DNS host — follow that screen.
+   Typically the apex `@` points to an A record `76.76.21.21` and `www` to a
+   `*.vercel-dns.com` CNAME.
+1. Vercel auto-issues HTTPS once the domain verifies.
 
 ## Before going live
 
@@ -49,5 +42,5 @@ and enable **Enforce HTTPS** once the certificate is issued.
 
 ## Files
 
-- `index.html` — the site (served at the root by GitHub Pages)
+- `index.html` — the site (served at the root)
 - `fredheim.html` — identical copy under the original filename
