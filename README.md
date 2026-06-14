@@ -16,9 +16,11 @@ python3 -m http.server 8000
 
 ## Deploy (GitHub Pages)
 
-1. Push this repo to GitHub.
-1. Repo **Settings → Pages → Build and deployment → Source: Deploy from a branch**.
-1. Branch: `main`, folder: `/ (root)`. Save.
+Deployment is automated via GitHub Actions (`.github/workflows/deploy-pages.yml`).
+
+1. In the repo, go to **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+1. Push to `master` (or `main`), or run the **Deploy to GitHub Pages** workflow
+   manually from the **Actions** tab.
 1. Site goes live at `https://<your-username>.github.io/<repo-name>/`.
 
 ## Before going live
