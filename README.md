@@ -34,7 +34,7 @@ At your domain registrar's DNS settings, add:
 | A     | `@`         | `185.199.109.153`           |
 | A     | `@`         | `185.199.110.153`           |
 | A     | `@`         | `185.199.111.153`           |
-| CNAME | `www`       | `<your-username>.github.io.` |
+| CNAME | `www`       | `fknutsen-web.github.io.`   |
 
 Then in **Settings → Pages**, set the custom domain to `fredheimlogistics.com`
 and enable **Enforce HTTPS** once the certificate is issued.
