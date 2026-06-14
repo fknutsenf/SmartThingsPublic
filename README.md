@@ -23,6 +23,22 @@ Deployment is automated via GitHub Actions (`.github/workflows/deploy-pages.yml`
    manually from the **Actions** tab.
 1. Site goes live at `https://<your-username>.github.io/<repo-name>/`.
 
+### Custom domain: fredheimlogistics.com
+
+The `CNAME` file in this repo points GitHub Pages at `fredheimlogistics.com`.
+At your domain registrar's DNS settings, add:
+
+| Type  | Host / Name | Value                       |
+| ----- | ----------- | --------------------------- |
+| A     | `@`         | `185.199.108.153`           |
+| A     | `@`         | `185.199.109.153`           |
+| A     | `@`         | `185.199.110.153`           |
+| A     | `@`         | `185.199.111.153`           |
+| CNAME | `www`       | `<your-username>.github.io.` |
+
+Then in **Settings → Pages**, set the custom domain to `fredheimlogistics.com`
+and enable **Enforce HTTPS** once the certificate is issued.
+
 ## Before going live
 
 - Replace the placeholder email `contact@fredheim.com` (appears in the nav, contact
